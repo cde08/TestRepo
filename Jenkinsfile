@@ -43,7 +43,7 @@ pipeline {
     stage ('DEV Deploy') {
       steps {
       echo "deploying to DEV Env "
-      deploy adapters: [tomcat9(credentialsId: 'Tomcat', path: '', url: 'http://3.93.188.255:9090')], contextPath: mogbe, war: '**/*.war'
+      deploy adapters: [tomcat9(credentialsId: 'Tomcat', path: '', url: 'http://3.93.188.255:9090')], contextPath: null, war: '**/*.war'
       }
     }
     stage ('Slack Notification') {
@@ -63,7 +63,7 @@ pipeline {
      stage ('QA Deploy') {
       steps {
         echo "deploying to QA Env "
-        deploy adapters: [tomcat9(credentialsId: 'Tomcat', path: '', url: 'http://3.93.188.255:9090')], contextPath: mogbe, war: '**/*.war'
+        deploy adapters: [tomcat9(credentialsId: 'Tomcat', path: '', url: 'http://3.93.188.255:9090')], contextPath: null, war: '**/*.war'
         }
     }
     stage ('QA Approve') {
